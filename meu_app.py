@@ -10,7 +10,7 @@ import pandas as pd
 
 st.set_page_config(page_title="Floricultura Rosas & Espinhos")
 
-with st.container():
+with st.container(border=True, height=110):
     st.subheader("Floricultura Rosas & Espinhos - 30 anos no mercado.", divider="rainbow")
     st.title("Tabela das Ultimas Vendas")
 
@@ -24,8 +24,8 @@ def carregar_produtos():
     produto = pd.read_csv("produtos.csv") # carrega a tabela de produtos da Floricultura
     return produto
 
-with st.container():
-    st.write("---")
+with st.container(border=True, height=520):
+    st.title("Relatório: Ultimas Vendas")
     qtde_dias = st.selectbox("Selecione o período", ["7D", "15D", "21D", "30D"])
     num_dias = int(qtde_dias.replace("D", ""))
     dados = carregar_vendas()
@@ -33,17 +33,15 @@ with st.container():
     st.area_chart(dados, x="Data", y="Vendas") # apresenta os ultimos vendas do arquivo resultados
 
 
-with st.container():
-    st.write("---")
-    st.title("Tabela de Produtos da Floricultura")
+with st.container(border=True, height=400):
+    st.title("Produtos da Floricultura")
     pro = carregar_produtos()
     st.table(pro) # apresenta a tabela de produtos
 
 
-with st.container():  # Rodapé da Pagina
-    st.write("---")
-    st.write("Patrocinador: Aprenda Python! [Clique aqui] (https://www.hashtagtreinamentos.com/curso-python)")
-    st.write("Copyright(C) 2024 - Todos os Direitos Reservados - Linguagem Python + Stremlit + Pandas")
+with st.container(border=True, height=110):  # Rodapé da Pagina
+    st.write("Patrocinio [Clique aqui] (https://www.hashtagtreinamentos.com/curso-python)")
+    st.write("Copyright(C) 2024 - Direitos Reservados - Linguagem Python + Stremlit + Pandas")
 
 
 # Fim deste Módulo
