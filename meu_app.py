@@ -11,7 +11,7 @@ import pandas as pd
 st.set_page_config(page_title="Floricultura Rosas & Espinhos")
 
 with st.container():
-    st.subheader("Floricultura Rosas & Espinhos - 30 anos no mercado.")
+    st.subheader("Floricultura Rosas & Espinhos - 30 anos no mercado.", divider="rainbow")
     st.title("Tabela das Ultimas Vendas")
 
 @st.cache_data
