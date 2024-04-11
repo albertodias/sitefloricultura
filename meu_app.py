@@ -30,7 +30,7 @@ with st.sidebar:
     )
 
 
-with st.container(border=True, height=110):
+with st.container(border=True, height=170):
     st.subheader("Floricultura Rosas & Espinhos - 30 anos no mercado.", divider="rainbow")  # Linha colorida Rainbow
     st.title("Tabela das Ultimas Vendas")
 
@@ -46,8 +46,7 @@ def carregar_produtos():
     return produto
 
 
-with st.container(border=True, height=560):
-    st.title("Relatório: Ultimas Vendas")
+with st.container(border=True, height=400):
     qtde_dias = st.selectbox("Selecione o período", ["7D", "15D", "21D", "30D"])
     num_dias = int(qtde_dias.replace("D", ""))
     dados = carregar_vendas()
