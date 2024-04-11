@@ -14,7 +14,21 @@ import pandas as pd
 from pandas import read_csv
 
 
+import time
+
+
 st.set_page_config(page_title="Floricultura Rosas & Espinhos")
+
+with st.sidebar:
+    "Floricultura Rosas & Espinhos."
+    st.image("flower.png", width=270)
+    opcoes = st.sidebar.selectbox(
+        "Escolha uma opção",
+        ("Pedidos", "Contatos", "Tabela preços", "Relatórios"),
+    )
+    with st.spinner("Carregando..."):
+        time.sleep(4)
+    st.success("Carregamento Concluido !!!")
 
 
 with st.container(border=True, height=110):
