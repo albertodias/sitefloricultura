@@ -1,6 +1,6 @@
 #######################################
 # Site de Floricultura Rosas & Espinhos
-# Alberto Dias 09/04/2024 as 22:45 hs
+# Alberto Dias 10/04/2024 as 23:00 hs
 # Python 3.12 + Pandas + Streamlit
 #######################################
 
@@ -17,22 +17,21 @@ from pandas import read_csv
 import time
 
 
-st.set_page_config(page_title="Floricultura Rosas & Espinhos")
+st.set_page_config(page_title="Floricultura Rosas & Espinhos",
+        page_icon="🧊", layout="wide")
+
 
 with st.sidebar:
-    "Floricultura Rosas & Espinhos."
-    st.image("flower.png", width=270)
+    "Floricultura Rosas & Espinhos."  # Nome acima da imagem
+    st.image("flower.png", width=270)  # Imagem da Flor
     opcoes = st.sidebar.selectbox(
-        "Escolha uma opção",
-        ("Pedidos", "Contatos", "Tabela preços", "Relatórios"),
+    "Escolha uma opção",
+    ("Pedidos", "Contatos", "Tabela preços", "Relatórios"),  # Menu de opções
     )
-    with st.spinner("Carregando..."):
-        time.sleep(4)
-    st.success("Carregamento Concluido !!!")
 
 
 with st.container(border=True, height=110):
-    st.subheader("Floricultura Rosas & Espinhos - 30 anos no mercado.", divider="rainbow")
+    st.subheader("Floricultura Rosas & Espinhos - 30 anos no mercado.", divider="rainbow")  # Linha colorida Rainbow
     st.title("Tabela das Ultimas Vendas")
 
 @st.cache_data
