@@ -14,19 +14,7 @@ import pandas as pd
 from pandas import read_csv
 
 
-from spacy import load
-
-
 st.set_page_config(page_title="Floricultura Rosas & Espinhos")
-
-
-bar = st.sidebar
-
-
-menu = bar.selectbox(
-    "Opções",
-    ["Relatórios","Pedidos","Contatos","Tabela de Preços"]
-)
 
 
 with st.container(border=True, height=110):
