@@ -1,2 +1,2 @@
 # sitefloricultura
-Site de Floricultura, Cadastro e Venda de Produtos
+Site de Floricultura, Cadastro e Venda de Flores
