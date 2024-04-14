@@ -17,7 +17,7 @@ from pandas import read_csv
 
 import sqlite3
 
-from tkinter import *
+#  from tkinter import *  # não suportado pelo site
 
 # ####################
 # variaveis utilizadas
@@ -29,19 +29,19 @@ banco = ""
 erro = ""
 # ####################
 
-def janela_cadastro():
-    janela = Tk()
-    janela.title("Cadastro de Produtos")
-    label_descricao = Label(janela, text='Cadastro de Produtos')
-    label_descricao.grid(column=0, row=1)
-
-    botao_Cadastrar = Button(janela, text="Cadastrar") # command = True
-    botao_Cadastrar.grid(column=0, row=3)
-    botao_cancelar = Button(janela, text="Cancelar", command=janela.destroy)  # Destroi a janela
-    botao_cancelar.grid(column=0, row=5)
-
-    janela.mainloop()
-    return
+# def janela_cadastro():
+#    janela = Tk()
+#    janela.title("Cadastro de Produtos")
+#    label_descricao = Label(janela, text='Cadastro de Produtos')
+#    label_descricao.grid(column=0, row=1)
+#
+#    botao_Cadastrar = Button(janela, text="Cadastrar") # command = True
+#    botao_Cadastrar.grid(column=0, row=3)
+#    botao_cancelar = Button(janela, text="Cancelar", command=janela.destroy)  # Destroi a janela
+#    botao_cancelar.grid(column=0, row=5)
+#
+#    janela.mainloop()
+#    return
 
 
 # ##############################################################################################
@@ -116,8 +116,8 @@ with st.sidebar:
 
 
     if opcoes == "Cadastrar Produtos":
-        #  st.write("Em programação -> aguarde")
-        janela_cadastro()  # Cadastro dos Produtos da Floricultura
+        st.write("Em programação -> aguarde")
+        # janela_cadastro()  # Cadastro dos Produtos da Floricultura
 
 
     if opcoes == "Relatórios":
