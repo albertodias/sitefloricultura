@@ -5,7 +5,8 @@
 #  PJI 310 - Turma 004 Grupo 005
 #  Ultima atualização 14/04/2024 as 17:15 hs
 #  #########################################
-import tkinter
+
+# import tkinter
 
 import requests
 
@@ -65,7 +66,7 @@ def pega_cotacoes():  #  Capturando as cotações de dolar euro e btc por uma ap
 # só p/ uso do programador e criacao do Banco de Dados
 def conexao_db(): #  função para criação do Banco de Dados e tabelas, consultas, insercoes
     try:
-        db = sqlite3.connect("./banco/floricultura.db")
+        db = sqlite3.connect("floricultura.db")
         cursor = db.cursor()
         #  cursor.execute("CREATE TABLE dbclientes (nome text, email text)")
         #  cursor.execute("INSERT INTO dbclientes VALUES ('FERNANDO','fernando@gmail.com')")
@@ -107,7 +108,7 @@ with st.sidebar:
 
 
     if opcoes == "Clientes":
-        db = sqlite3.connect("./banco/floricultura.db")  # conectando ao banco de dados
+        db = sqlite3.connect("floricultura.db")  # conectando ao banco de dados
         cursor = db.cursor()
         cursor.execute("SELECT * FROM dbclientes")  # consultando o banco de dados
         with st.container(border=True, height=200):
