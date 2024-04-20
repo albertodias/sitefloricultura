@@ -3,7 +3,7 @@
 #  RA: 2102144  Fernando Dias
 #  RA: 2009640  Felipe Sousa Chagas
 #  PJI 310 - Turma 004 Grupo 005
-#  Ultima atualização 18/04/2024 as 07:00 hs
+#  Ultima atualização 15/04/2024 as 21:30 hs
 #  #########################################
 
 import requests
@@ -15,8 +15,6 @@ import pandas as pd
 from pandas import read_csv
 
 import sqlite3
-
-import numpy as np
 
 # ####################
 # variaveis utilizadas
@@ -66,12 +64,12 @@ def pega_cotacoes():  #  Capturando as cotações de dolar euro e btc por uma ap
 # ############################################################
 # funcao inicial de configuracao da pagina está ok nao alterar
 st.set_page_config(page_title="Floricultura Rosas & Espinhos",
-        page_icon=":bar_chart:", layout="wide")
+        page_icon="🧊", layout="wide")
 # #########################################################################################
 # funcao sidebar está ok nao alterar
 with st.sidebar:
     opcoes = st.sidebar.selectbox(
-    ":bar_chart: Menu Principal",
+    "Menu Principal",
     ("Relatório de Vendas", "Lista de Clientes", "Cotações de Moedas",
      "Lista de Produtos", "Incluir Clientes", "Incluir Produtos"),  # Menu de opções
     )
@@ -83,23 +81,19 @@ with st.sidebar:
 # #######################################################################################
 # Bloco Principal - Bloco Principal - Bloco Principal - Bloco Principal - Bloco Principal
 # nome da empresa e linha colorida rainbow - está ok não alterar
-with st.container(border=True, height=650):
+with st.container(border=True, height=600):
     st.subheader("Floricultura Rosas & Espinhos - 30 anos no mercado.", divider="rainbow")
 
 
     if opcoes == "Relatório de Vendas":
-        st.title(":bar_chart: Tabela das Ultimas Vendas")
-        with st.container(border=True, height=500):
+        st.title("Tabela das Ultimas Vendas")
+        with st.container(border=True, height=420):
             qtde_dias = st.selectbox("Selecione o período de pesquisa", ["7D", "15D", "21D", "30D"])
             num_dias = int(qtde_dias.replace("D", ""))
             dados = carregar_vendas()
             dados = dados[-num_dias:]
-            total = round(dados["Vendas"].sum(), 2)
-            st.metric("Total de Receitas", round(int(total),2))
             # apresenta na tela ass ultimas vendas
-            # st.area_chart(dados, x="Data", y="Vendas", width=180, height=300)
-            st.line_chart(dados, x="Data", y="Vendas", width=180, height=300, color=[400, 110, 220])
-            # st.plotly_chart(dados, x="Data", y="Vendas", width=180, height=300)
+            st.area_chart(dados, x="Data", y="Vendas", width=180, height=300)
 
 
     if opcoes == "Lista de Produtos":
@@ -120,8 +114,7 @@ with st.container(border=True, height=650):
         cursor = db.cursor()
         cursor.execute("SELECT * FROM dbclientes")  # consultando o banco de dados
         with st.container(border=True, height=300):
-            # st.table(cursor)
-            st.dataframe(cursor)
+            st.table(cursor)
             db.close()
 
 
@@ -162,7 +155,7 @@ with st.container(border=True, height=650):
 # Rodapé da página com informações importantes - não alterar
 with st.container(border=True, height=200):  # Rodapé da Pagina
     # st.write("Patrocinio [Clique aqui] (https://www.hashtagtreinamentos.com/curso-python)")
-    st.write("Copyright(C) 2024 - Direitos Reservados - Versão 1.03 - 20/04/2024")
+    st.write("Copyright(C) 2024 - Direitos Reservados - Versão 1.02")
     with st.container(border=True, height=100):  # Rodapé da Pagina (2)
         st.write("Desenvolvido pela Turma 004 Grupo 005")
         st.write("Linguagem utilizada Python 3.12.2 + Streamlit + Pandas")
@@ -174,5 +167,3 @@ with st.container(border=True, height=200):  # Rodapé da Pagina
 #  name = st.text_input(label="Insira seu nome", max_chars=30)
 #  email = st.text_input(label="insira seu e-mail", max_chars=60)
 #  idade = st.number_input(label="insira a sua idade", format="%d", step=1) ou "%i"
-
-# :bar_chart: icone de barras - para ser usada na linha do navegador e tambem na tabela de vendas
